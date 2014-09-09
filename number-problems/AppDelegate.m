@@ -14,45 +14,28 @@
 
 @implementation AppDelegate
 
-//Following is the source code for a method called max(). This method takes two parameters num1 and num2 and returns the maximum between the two:
 
-- (int) yax:(int) num1 secondNumber:(int) num2
-{
-    /* local variable declaration */
-    int result;
-    
-    if (num1 > num2)
-    {
-        result = num1;
+//Add a method called iterateCount that takes an integer
+//The method should call itself and decrement the integer until the value is 0
+//Print the integer with the text "Iterate [integer]" where the integer gets printed
+//It should decrement the integer using operator shorthand.
+//In the didFinishLaunching method, call iterateCount and pass in 4
+
+- (NSInteger)iterateCount:(NSInteger) number{
+    NSInteger countValue = number;
+    NSLog(@"Iterate %d", countValue);
+    if(countValue == 0) {
+        return countValue;
+    } else {
+        countValue --;
+        [self iterateCount: countValue];
+        return countValue;
     }
-    else
-    {
-        result = num2;
-    }
-    
-    return result;
 }
-            
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    
-    /* local variable definition */
-    int a = 100;
-    int b = 200;
-    int ret;
-    
-   // SampleClass *sampleClass = [[SampleClass alloc]init];
-    
-    /* calling a method to get max value */
-    yax;
-    
-    NSLog(@"Max value is : %d\n", ret );
-    
-    return 0;
-    
-    
+    [self iterateCount:4];
     return YES;
 }
 
